@@ -18,14 +18,18 @@ The owner previously confirmed recall from all three stored tabs after switching
 | Windows BLE | All-feature build and hardware-free queue, deadline and runtime tests pass. No physical BLE test. |
 | Linux Classic | `cargo check --target x86_64-unknown-linux-gnu` succeeds, including the native socket backend and media. No Linux Bluetooth hardware test. |
 | macOS BLE | `cargo check --target aarch64-apple-darwin --all-features` succeeds. No macOS Bluetooth hardware test. |
-| Linux BLE | btleplug backend is provided. Native Linux execution and D-Bus integration were not run on this Windows host. Linux CI installs libdbus development packages. |
+| Linux BLE | btleplug backend is provided. Native Linux execution and D-Bus integration were not run on this Windows host. Building this backend requires the system D-Bus development packages. |
 | macOS Classic | No IOBluetooth backend. The library does not claim native Classic support on macOS. |
 
-Cross-compilation checks type compatibility. They do not establish runtime permissions, radio availability, device initialization sequences, or firmware behavior. The checked-in CI workflow is prepared for Windows, Linux, and macOS; it has not been published or executed by GitHub in this local task.
+Cross-compilation checks type compatibility. They do not establish runtime permissions, radio availability, device initialization sequences, or firmware behavior. Verification is run locally through `tools/verify.ps1`. This repository has no GitHub Actions workflow.
 
 ## Reproduce the checks
 
-The final Windows verification run passed81 unit/integration tests and3 Rustdoc examples with all features, plus64 unit/integration tests in the minimal-feature build. Clippy with warnings denied, Rustdoc with warnings denied, formatting, the offline media example,91-page source/fixture validation, and13 local documentation-link checks also passed.
+The current Windows workspace verification passed100 unit/integration tests with all features, comprising84 library tests and16 CLI tests, plus3 Rustdoc examples. The separate minimal-feature library build passed64 tests. Workspace Clippy and Rustdoc with warnings denied, formatting, the offline media example,91-page source/fixture validation, and18 local documentation-link checks also passed. The CLI also passes `cargo check -p pixo-cli --target x86_64-unknown-linux-gnu`; this is compilation evidence only.
+
+The optimized Windows CLI passed16 additional external smoke checks through real subprocesses, configuration import, scene persistence, overwrite refusal, dry runs, and PNG/GIF previews. Pixel checks confirmed text rendering and centered contain padding. A dry run of the existing PR-merged GIF produced24 frames,10822 native bytes, and43 initial storage chunks, matching the inherited capture's asset metadata.
+
+A read-only live CLI status attempt stopped at the conservative legacy-controller check because its localhost connection timed out. It returned exit3 with `ownership_check` and `delivery_uncertain: false`, before opening Bluetooth. This run does not establish a new physical CLI status, upload, or save result. Existing artwork, controller processes, and Go configuration were preserved.
 
 From the Rust repository, run the commands in the README. The coverage generator validates91 command-page mappings,90 distinct base opcodes, source snapshot hashes, and fixture paths. The Rust coverage test also resolves mapped API symbols and fixture function names.
 
@@ -35,4 +39,6 @@ Session tests cover partial writes, zero progress, retryable write readiness tim
 
 Media tests compare full wire messages with the independent Go corpus. They cover palette capacity and reuse, alpha policy, per-frame durations, GIF transparency and background/previous disposal, native truncation, counter bounds, and text positioning.
 
-Independent review found and prompted fixes for stale transfer events, retry-barrier ordering, write timeout handling, queue boundaries, Windows connect error readiness, status-less wrappers, whole-list ownership, and unsupported final-ACK assumptions. Review reports and decision logs are local verification artifacts in the gitignored `.audit` directory. The repository retains the tests, fixtures, and protocol evidence needed to reproduce verification. Independent review used the available parent model, so model diversity was reduced.
+The earlier library review found and prompted fixes for stale transfer events, retry-barrier ordering, write timeout handling, queue boundaries, Windows connect error readiness, status-less wrappers, whole-list ownership, and unsupported final-ACK assumptions. That review used the available parent model, so model diversity was reduced.
+
+CLI review prompted strict typed imports, bounded cover sampling, cancellation-aware connection results, and a narrower selected-device diagnostic claim. Regression tests reproduced invalid-import acceptance and the overly broad diagnostic contract before their fixes. Simulated transport tests cover composed updates, partial effects without replay, and cancellation before application I/O. A fresh review found no unresolved actionable findings. Review reports and decision logs remain in the gitignored `.audit` directory; checked-in tests, fixtures, and documentation retain reproducible evidence.

@@ -11,3 +11,5 @@ The public protocol belongs to Divoom. This library is an independent implementa
 - The [GIF89a specification](https://giflib.sourceforge.net/gifstandard/GIF89a.html) defines GIF frame timing, transparency, and disposal.
 
 Third-party Rust dependencies retain their own licenses. `Cargo.lock` records the versions used for verification.
+
+The `pixo` CLI renders its bundled pixel font through the MIT-licensed `font8x8` crate, version 0.3.1 by Joaquin Rosales. Its license is reproduced in [licenses/font8x8.txt](licenses/font8x8.txt). The CLI uses printable ASCII glyphs from `BASIC_FONTS`; it does not supply arbitrary Unicode shaping or native Divoom word serialization.

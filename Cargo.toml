@@ -6,6 +6,10 @@ rust-version = "1.88"
 description = "Typed Divoom Bluetooth protocols, native media, and transaction sessions"
 license = "MIT"
 
+[workspace]
+members = ["crates/pixo-cli"]
+resolver = "2"
+
 [features]
 default = ["media"]
 media = ["dep:image", "dep:gif"]
