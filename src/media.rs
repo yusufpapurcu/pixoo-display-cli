@@ -8,7 +8,7 @@
 use std::collections::HashMap;
 use std::io::Read;
 
-use image::{DynamicImage, Rgba, RgbaImage};
+use image::{DynamicImage, GenericImageView, Rgba, RgbaImage};
 
 use crate::protocol::Packet;
 use crate::{Error, Result};
@@ -18,6 +18,14 @@ pub enum Dimension {
     Sixteen,
     ThirtyTwo,
     SixtyFour,
+}
+
+/// Aspect-ratio policy applied after a GIF frame has been fully composited.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum FitMode {
+    Stretch,
+    Contain,
+    Cover,
 }
 
 impl Dimension {
@@ -65,19 +73,50 @@ impl Frame {
         dimension: Dimension,
         duration_ms: u16,
     ) -> Result<Self> {
+        Self::from_image_fitted(image, dimension, duration_ms, FitMode::Stretch)
+    }
+
+    /// Fit pixels with nearest-neighbor sampling. Contain pads with opaque black.
+    /// Cover samples the centered source square directly into the output canvas.
+    pub fn from_image_fitted(
+        image: &DynamicImage,
+        dimension: Dimension,
+        duration_ms: u16,
+        fit: FitMode,
+    ) -> Result<Self> {
         if image.width() == 0 || image.height() == 0 {
             return Err(Error::Invalid("source image is empty"));
         }
-        Self::new(
-            image
-                .resize_exact(
-                    dimension.pixels(),
-                    dimension.pixels(),
-                    image::imageops::FilterType::Nearest,
-                )
-                .to_rgba8(),
-            duration_ms,
-        )
+        let size = dimension.pixels();
+        let filter = image::imageops::FilterType::Nearest;
+        let pixels = match fit {
+            FitMode::Stretch => image.resize_exact(size, size, filter).to_rgba8(),
+            FitMode::Cover => {
+                let side = image.width().min(image.height());
+                let denominator = u64::from(size) * 2;
+                let offset_x = u64::from(image.width() - side) * u64::from(size);
+                let offset_y = u64::from(image.height() - side) * u64::from(size);
+                RgbaImage::from_fn(size, size, |x, y| {
+                    let source_x =
+                        ((u64::from(x) * 2 + 1) * u64::from(side) + offset_x) / denominator;
+                    let source_y =
+                        ((u64::from(y) * 2 + 1) * u64::from(side) + offset_y) / denominator;
+                    image.get_pixel(source_x as u32, source_y as u32)
+                })
+            }
+            FitMode::Contain => {
+                let fitted = image.resize(size, size, filter).to_rgba8();
+                let mut canvas = RgbaImage::from_pixel(size, size, Rgba([0, 0, 0, 255]));
+                image::imageops::replace(
+                    &mut canvas,
+                    &fitted,
+                    i64::from((size - fitted.width()) / 2),
+                    i64::from((size - fitted.height()) / 2),
+                );
+                canvas
+            }
+        };
+        Self::new(pixels, duration_ms)
     }
 
     /// Load PNG, JPEG, BMP, WebP or a still GIF through the image decoder.
@@ -306,6 +345,11 @@ impl Animation {
     /// retained exactly in milliseconds, including zero. Delays above u16 fail.
     /// Logical canvases above 16 million pixels or over 4096 frames are rejected.
     pub fn from_gif(reader: impl Read, dimension: Dimension) -> Result<Self> {
+        Self::from_gif_fitted(reader, dimension, FitMode::Stretch)
+    }
+
+    /// Composite GIF disposal before applying the selected fit policy.
+    pub fn from_gif_fitted(reader: impl Read, dimension: Dimension, fit: FitMode) -> Result<Self> {
         let mut options = gif::DecodeOptions::new();
         options.set_color_output(gif::ColorOutput::RGBA);
         let mut decoder = options
@@ -366,10 +410,11 @@ impl Animation {
             }
             let duration_ms = u16::try_from(u32::from(frame.delay) * 10)
                 .map_err(|_| Error::Invalid("GIF delay exceeds 65535 milliseconds"))?;
-            frames.push(Frame::from_image(
+            frames.push(Frame::from_image_fitted(
                 &DynamicImage::ImageRgba8(canvas.clone()),
                 dimension,
                 duration_ms,
+                fit,
             )?);
             match frame.dispose {
                 gif::DisposalMethod::Background => {
