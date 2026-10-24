@@ -1,0 +1,15 @@
+{
+  "page_id": "265",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "38",
+  "page_title": "Set tool info (0x72)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\nThis command is used to set information for the tools (games) available in the device. The data format for this command is as follows:\n\n\n| Head  |Len   |Cmd  | data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x72 |data[]  | xx |0x02   |\n\nThe data format for this command is as follows:\n\n- uint8 game_mode_index: The index representing the specific game mode or tool for which information is to be set. The possible values are:\n  - DIVOOM_DISP_WATCH_MODE = 0: Timer function\n  - DIVOOM_DISP_SCORE_MODE = 1: Score function\n  - DIVOOM_DISP_NOISE_MODE = 2: Noise statistics function\n  - DIVOOM_DISP_COUNT_TIME_DOWN = 3: Countdown timer function\n\nBased on the value of game_mode_index, the data structure for the command will differ:\n\n1. If game_mode_index is DIVOOM_DISP_WATCH_MODE = 0 (Timer function):\n   - uint8 Ctrl_flag: This flag controls the timer function. The possible values are:\n     - 0: Pause the timer\n     - 1: Start the timer\n     - 2: Reset the timer\n\n2. If game_mode_index is DIVOOM_DISP_SCORE_MODE = 1 (Score function):\n   - uint8 on_off: This flag controls the score function. The possible values are:\n     - 0: Exit the score function\n     - 1: Start the score function\n   - uint8 red_score_low: The low 8 bits of the red team's score.\n   - uint8 red_score_high: The high 8 bits of the red team's score.\n   - uint8 blue_score_low: The low 8 bits of the blue team's score.\n   - uint8 blue_score_high: The high 8 bits of the blue team's score.\n\n3. If game_mode_index is DIVOOM_DISP_NOISE_MODE = 2 (Noise statistics function):\n   - uint8 ctrl_flag: This flag controls the noise statistics function. The possible values are:\n     - 1: Start the noise statistics\n     - 2: Stop the noise statistics\n\n4. If game_mode_index is DIVOOM_DISP_COUNT_TIME_DOWN = 3 (Countdown timer function):\n   - uint8 ctrl_flag: This flag controls the countdown timer function. The possible values are:\n     - 0: Start the countdown\n     - 1: Cancel the countdown\n     - 2: Pause/play the countdown (this is opposite to the value used in SPP_GET_TOOL_INFO)\n\n   - uint8 min: The minutes remaining in the countdown.\n   - uint8 second: The seconds remaining in the countdown (maximum 59).\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:22:05",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

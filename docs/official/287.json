@@ -1,0 +1,15 @@
+{
+  "page_id": "287",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Set light mode (0x45)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to control the light mode of the device.\n\n| Head  |Len   |Cmd  |data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x45 |data   |xx   |0x02   |\n\nData Format:\n- data[0]: Mode, which can take one of the following values:\n  - DIVOOM_DISP_ENV_MODE (0): Environmental mode. The rest of the data fields are used for this mode.\n  - DIVOOM_DISP_LIGHT_MODE (1): Light mode. The rest of the data fields are used for this mode.\n  - DIVOOM_DISP_DIVOOM_MODE (2): Divoom mode. No additional data is used for this mode.\n  - DIVOOM_DISP_SPECIAL_MODE (3): Special mode. The mode selection is specified in data[1].\n  - DIVOOM_DISP_MUISE_MODE (4): Music mode. The mode selection is specified in data[1].\n  - DIVOOM_DISP_USER_DEFINE_MODE (5): User-defined mode. No additional data is used for this mode.\n\nFor DIVOOM_DISP_ENV_MODE (0):\n- data[1]: 12-hour format (0) or 24-hour format (1) for time display (time is not processed, handled in the 0x2C command).\n- data[2]: Display mode, starting from 0.\n- data[3-6]: Checkbox values.\n- data[7-9]: RGB color values.\n\nFor DIVOOM_DISP_LIGHT_MODE (1):\n- data[1-3]: RGB color values.\n- data[4]: Brightness level.\n- data[5]: Light effect mode.\n- data[6]: Light on/off switch.\n\nFor DIVOOM_DISP_SPECIAL_MODE (3):\n- data[1]: Mode selection.\n\nFor DIVOOM_DISP_MUISE_MODE (4):\n- data[1]: Mode selection.\n\nFor DIVOOM_DISP_SCORE_MODE (6):\n- data[1]: 0 (off) or 1 (on).\n- data[2]: Red score.\n- data[3]: Blue score.\n\nThe command allows the app to set different light modes based on the provided data. The interpretation of data fields depends on the mode specified in data[0].\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:25:29",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

@@ -1,0 +1,15 @@
+{
+  "page_id": "213",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "34",
+  "page_title": "App need get music list (0x47)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n-The app requests to get the music playlist.\n\n| Head  |Len   | Cmd   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x47 | xx |0x02   |\n\nWhen the app needs the playlist, it sends this command to the device. The device will reply to this command with the music playlist when it is ready. There is no data payload in the reply.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:17:30",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

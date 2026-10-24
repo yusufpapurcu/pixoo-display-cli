@@ -1,0 +1,15 @@
+{
+  "page_id": "249",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "36",
+  "page_title": "Set memorial time (0x54)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Set the extended daily time information on the device.\n\n| Head  |Len   |Cmd  | data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x54 |data[]   | xx |0x02   |\n\nUse this command to set the extended daily time information on the device. The Data[] field contains the information for a single daily time record, and the format is as follows:\n\nUint8 DialyID: Record identifier, corresponds to the index 0, 1, 2.\nUint8 on_off: Switch flag; 1 for on, 0 for empty record.\nUint8 month: Month (1 byte).\nUint8 day: Day (1 byte).\nUint8 hour: Hour (1 byte).\nUint8 minute: Minute (1 byte).\nUint8 have_flag: Whether there is an animation; 0 for no, 1 for yes.\nUint8 titile_name[32]: Name of the record, using 32 bytes.\n\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:18:46",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

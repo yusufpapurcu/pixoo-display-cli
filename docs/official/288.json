@@ -1,0 +1,15 @@
+{
+  "page_id": "288",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Get light mode (0x46)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to retrieve the current light mode settings from the device.\n\n\n| Head  |Len   |Cmd  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x46  | xx |0x02   |\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x46 |0x55 | data | xx |0x02   |\n\nData Format:\n- data[0]: Current light effect mode. Possible values are:\n  - 0: Clock\n  - 1: Night Light\n  - 2: HOT\n  - 3: VJ\n  - 4: Music EQ or Flag (Backpack)\n  - 5: Custom\n  - 6: Lyric Display\n\n- data[1]: Temperature display mode. Fahrenheit is represented by 1, Celsius by 0.\n\n- data[2]: VJ selection option.\n\n- data[3-5]: RGB color values of the lighting.\n\n- data[6]: Brightness level of the lighting.\n\n- data[7]: Lighting mode selection option.\n\n- data[8]: On/Off switch of the lighting.\n\n- data[9]: Music mode selection option.\n\n- data[10]: System brightness.\n\n- data[11]: Time display format selection option. 12-hour format is represented by 0, and 24-hour format by 1.\n\n- data[12-14]: RGB color values of the time display.\n\n- data[15]: Time display mode.\n\n- data[16-19]: Time checkbox modes.\n\nThe device responds with the current settings for different lighting and display options. The values in the data fields indicate the current configurations for the corresponding options.\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:25:46",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

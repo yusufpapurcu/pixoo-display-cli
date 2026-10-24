@@ -1,0 +1,15 @@
+{
+  "page_id": "294",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Set user gif (0xb1)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to set a user-defined picture. The data structure for this command is as follows:\n\n| Head  |Len   |Cmd  |Control Word|Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xb1 |Control Word |data[]   |xx   |0x02   |\n\nControl Word (1 byte): \n  - 0: Start saving (Wait for device response)\n  - 1: Transmit data\n  - 2: Transmission end\n\nWhen Control Word is 0 or 2:\n- Data[0]: 0 for a normal image (no additional data), 1 for LED editor (additional data follows), 2 for sand painting, 3 for scroll animation\n\nIf it is an LED editor:\n- Data[1]: Speed (1 byte)\n- Data[2]: Length of the text (1 byte)\n- Data[3] onwards: File data (Data[2] * 2 bytes)\n\nIf it is a scroll animation:\n- Data[1]: Mode (1 byte)\n- Data[2]: Speed (2 bytes) (Data[2] = speed & 0xFF; Data[3] = speed >> 8)\n- Data[4]: Length (2 bytes) (Data[4] = len & 0xFF; Data[5] = len >> 8)\n\nIf Control Word is 1 (Transmit Data):\n- LEN (2 bytes): Current data length, must be a complete frame data.\n- Data: Image data\n\nFor sand painting data structure: Two bytes for speed (in milliseconds), followed by (two bytes for length + one image). Then, N groups of data (two bytes for the number of points, if it's a color fill, it's 0; no offset data in this case), followed by RGB color (three bytes), and N sets of point offsets (from left to right, top to bottom, starting from 0).\n\n\nDevice Response Command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0xb1 |0x55 | xx |0x02   |\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:27:40",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

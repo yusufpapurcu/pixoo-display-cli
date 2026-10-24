@@ -1,0 +1,15 @@
+{
+  "page_id": "180",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Send sd status (0x15)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Notify that there is an insertion or removal action on the TF card\n\n\n| Head  |Len   |MainCmd| Cmd   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x4 |0x15    | xx |0x02   |\n\n- To obtain the TF card status, send this command, and the device will also actively report the TF card status\n\n| Head  |Len   |MainCmd| Cmd   |AckCode |Status |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x4 |0x15    |0x55| status |xx |0x02   |\n\nStatus: 1 for insertion status, 0 for removal status",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:01:27",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

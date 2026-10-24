@@ -1,0 +1,15 @@
+{
+  "page_id": "259",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "37",
+  "page_title": "Set time manage ctrl (0x57)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n// Get or Set Time Management Configuration command\nThis command is used to get or set the time management configuration.\n\n\n| Head  |Len   |Cmd  | Flag |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x57  | xx |0x02   |\n\nIf FLAG is 1, time management is disabled.\nIf FLAG is 0, the time management status is returned.\n\nDevice response:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Time flag  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x57 |0x55 | xx (1 bytes) | xx |0x02   |\n\n\nTime_flag: 1 if there is time management configuration, 0 if there is no time management configuration.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:21:33",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

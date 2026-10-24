@@ -1,0 +1,15 @@
+{
+  "page_id": "211",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "34",
+  "page_title": "Set sd music postion (0xb8)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command for the app to set the SD card music playback position.\n\n| Head  |Len   | Cmd  |Postion |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0xb8 | xx (2 bytes)| xx |0x02   |\nPosition: The position to set, represented in seconds. The value should be in little-endian format, with the low byte first and the high byte second.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:16:44",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

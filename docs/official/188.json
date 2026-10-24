@@ -1,0 +1,15 @@
+{
+  "page_id": "188",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Get device name (0x76)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to obtain the Bluetooth device name\n\n| Head  |Len   | Cmd   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x76 | xx |0x02   |\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x76 |0x55 | data | xx |0x02   |\n\nData: The data format is as follows:\n\nLength (one byte) + Device name in UTF-8 format (excluding \"TIMEBOX+\").\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:04:44",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

@@ -1,0 +1,36 @@
+[package]
+name = "divoom-bluetooth"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+description = "Typed Divoom Bluetooth protocols, native media, and transaction sessions"
+license = "MIT"
+
+[features]
+default = ["media"]
+media = ["dep:image", "dep:gif"]
+ble = ["dep:btleplug", "dep:tokio", "dep:futures-util", "dep:uuid"]
+
+[dependencies]
+image = { version = "0.25.9", default-features = false, features = ["gif", "png", "jpeg", "bmp", "webp"], optional = true }
+gif = { version = "0.13", optional = true }
+btleplug = { version = "0.11", optional = true }
+tokio = { version = "1", features = ["rt-multi-thread", "time", "sync"], optional = true }
+futures-util = { version = "0.3", optional = true }
+uuid = { version = "1", optional = true }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Networking_WinSock", "Win32_Devices_Bluetooth", "Win32_Foundation"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+libc = "0.2"
+
+[dev-dependencies]
+serde_json = "1"
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[[example]]
+name = "media_native"
+required-features = ["media"]

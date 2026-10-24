@@ -1,0 +1,15 @@
+{
+  "page_id": "310",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Drawing ctrl movie play (0x6e)",
+  "page_content": "Welcome to the Divoom API\n\n##### command description\n\n-This command is used to control the movie playback on the device. The mobile app sends this command to the device.\n\n| Head  |Len   |Cmd |Data|Checksum |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x6e|data[]|xx|0x02   |\n\n- DATA: One byte representing the control command for movie playback:\n  - 0x00: Exit movie mode - This command is used to exit the movie playback mode on the device.\n  - 0x01: Start movie playback - This command is used to start the movie playback on the device.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:34:02",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

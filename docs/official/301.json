@@ -1,0 +1,15 @@
+{
+  "page_id": "301",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Drawing mul pad ctrl (0x3a)",
+  "page_content": "Welcome to the Divoom API\n\n##### command description\n\n- This command is used for multiple screen drawing pad control and is sent from the mobile app to the device.\n\n| Head  |Len   |Cmd  |Data |Checksum |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x3a |data[] |xx|0x02   |\n\n\nData: The data field contains information about the drawing pad control:\n  - data[0] (Byte 1): 屏的ID (Screen ID) - Specifies the ID of the screen. If it is a single screen, the ID is 0. For multiple screens, the ID represents the screen's position from left to right and top to bottom, starting from 0.\n  - data[1] (Byte 2): R - Red color component.\n  - data[2] (Byte 3): G - Green color component.\n  - data[3] (Byte 4): B - Blue color component.\n  - data[4] (Byte 5): Number of points - Specifies the number of points to be drawn.\n  - data[5] (Starting from Byte 6): Offset List - Contains the offset values for the points to be drawn. The offset values determine the position of the points on the screen, from left to right, starting from 0.\n\ndevice responds:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|CtrFlag  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x3a |0x55 | ctrl_flag | xx |0x02   |\n\nctrflag: This field indicates whether the device should display the drawing or not. \n- If ctrflag is 1, it means that the device should display the drawing (normal display).\n- If ctrflag is 0, it means that the device was not on the drawing pad previously, and the app is requesting the device to send the entire drawing image (requesting to send the whole image).\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:30:25",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

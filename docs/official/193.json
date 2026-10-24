@@ -1,0 +1,15 @@
+{
+  "page_id": "193",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Set song dis ctrl (0x83)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to set the song name display switch\n\n| Head  |Len   | Cmd   | Type |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x83 | ctrl | xx |0x02   |\n\nCtrl: One byte representing the control for the song name display switch:\n- 0: Turn off (disable)\n- 1: Turn on (enable)\n- 0xFF: Get the current configuration (query the current status)\n\n\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode| ctrl  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x83 |0x55 | ctrl | xx |0x02   |\n\nCtrl: One byte representing the status of the song name display switch:\n- 0: Display switch is turned off (disabled)\n- 1: Display switch is turned on (enabled)\n\n\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:06:59",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

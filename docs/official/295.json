@@ -1,0 +1,15 @@
+{
+  "page_id": "295",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Modify user gif items (0xb6)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to get the number of user-defined items or delete a specific item.\n\n| Head  |Len   |Cmd  |Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xb6 |data |xx   |0x02   |\n\n- DATA (1 byte): If DATA is 0xff, the device will return the current number of items. If DATA is any other value, the device will delete the corresponding item (numbered from 1).\n\nDevice Response Command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode |item |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0xb6 |0x55 |xx | xx |0x02   |\n- Item (1 byte): The response will contain the item number, counting from left to right, then from top to bottom, starting from 1.",
+  "s_number": "99",
+  "addtime": "2023-08-09 10:37:37",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

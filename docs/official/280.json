@@ -1,0 +1,15 @@
+{
+  "page_id": "280",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "40",
+  "page_title": "Set game ctrl info (0x17)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to send game control information from the app to the device when a key is pressed during the game.\n\n| Head  |Len   |Cmd  | Key |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x17 |key| xx |0x02   |\n\nData Format:\n- 1 byte: Key (The value represents the key pressed during the game. The possible values are defined as follows:\n  - 1: Left\n  - 2: Right\n  - 3: Up\n  - 4: Down\n  - 5: OK (Confirm)\n\nthe device connects to the APP and sends game-related information:\n\n| Head  |Len   |MainCmd| Cmd |Game type | Time |Score  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x17 |xx (1 bytes) | xx (2 bytes) |xx (2 bytes) | xx |0x02   |\n\nData Format (Device to App):\n- 1 byte: Game Type (The type of game played on the device, following the same enumeration as SPP_SET_GAME)\n- 2 bytes: Time (Total time played in seconds, low byte first, high byte second)\n- 2 bytes: Score (Highest score achieved in the game, low byte first, high byte second)\n\nThe device sends this information to the app after connecting, providing updates on the game progress and highest score achieved since the last synchronization.\n\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:24:50",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

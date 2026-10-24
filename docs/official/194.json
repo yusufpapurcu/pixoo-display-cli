@@ -1,0 +1,15 @@
+{
+  "page_id": "194",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Set blue password (0x27)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to set the password for user's Bluetooth connection\n\n| Head  |Len   | Cmd  | Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x27 |data[] | xx |0x02   |\n\nAPP sends data to the device as follows:\n\nControl: 1 byte\n- 1: Set a new password\n- 0: Cancel the password\n- 2: Get password setting status\n\nPassword: 4 bytes\n- Valid only when the control byte is 1, represents the new four-digit password.\n\n\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x27 |0x55 | data | xx |0x02   |\n\nThe device sends data to the APP as follows:\n\nPassword Setting Status: 1 byte\n- 0: Password is not set\n- 1: Password is set\n\nPassword Information: 4 bytes\n- Available only when the password is set.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:11:40",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

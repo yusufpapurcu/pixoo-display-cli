@@ -1,0 +1,15 @@
+{
+  "page_id": "189",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Set low power switch (0xb2)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to switch low power mode\n\n| Head  |Len   |Cmd  |Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xb2|data   |xx   |0x02   |\nData: data[0], where:\n- 1: Turn on the low power mode\n- 0: Turn off the low power mode\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:05:31",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

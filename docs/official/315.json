@@ -1,0 +1,15 @@
+{
+  "page_id": "315",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Get sound ctrl (0xa8)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to returns the sound control switch value from device\n\n| Head  |Len   | Cmd  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0xa8|xx |0x02   |\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0xa8 |0x55 | data(1 bytes) | xx |0x02   |\n\ndata format:\n- 1: Enables the screen to be controlled by ambient sound\n- 0: Disable the screen to be controlled by ambient sound\n\n\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-09 10:28:21",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

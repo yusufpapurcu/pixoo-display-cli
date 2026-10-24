@@ -1,0 +1,15 @@
+{
+  "page_id": "272",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "39",
+  "page_title": "Set sleep scene listen (0xa3)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to set the sleep mode listen settings. It allows the app to control the sleep mode listen feature.\n\n| Head  |Len   |Cmd  | data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xa3 |data[]| xx |0x02   |\n\nData Format:\n- uint8 on_off: The on/off status of the sleep mode listen feature. 1 means \"on\" and 0 means \"off\".\n- uint8 mode: The mode of the sleep mode listen feature.\n- uint8 volume: The volume level for the sleep mode listen feature.\n\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:22:38",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

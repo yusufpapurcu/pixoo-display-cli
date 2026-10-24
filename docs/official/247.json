@@ -1,0 +1,15 @@
+{
+  "page_id": "247",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "36",
+  "page_title": "Set alarm time (0x43)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Set the extended alarm time information in the device.\n\n| Head  |Len   |Cmd  |data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x43 |data[]   |xx   |0x02   |\n\nUse this command to set the extended alarm time information in the device. The command includes the following data format:\n\nUint8 alarm_index: Indicates which alarm to set, starting from 0.\nUint8 status: 1 (alarm on), 0 (alarm off).\nUint8 hour: Hour to set for the alarm.\nUint8 minute: Minute to set for the alarm.\nUint8 week: Bits 0 to 6 represent Sunday to Saturday, respectively. Set to 1 if the alarm should repeat on that day.\nUint8 mode: Alarm mode (ALARM_MUSIC=0, and others: 1, 2, 3, 4).\nUint8 trigger_mode: Alarm trigger mode (ALARM_TRIGGER_MUSIC=1, ALARM_TRIGGER_GIF=4).\nUint8 Fm[2]: If the trigger mode is ALARM_TRIGGER_MUSIC, these 2 bytes represent the frequency point.\nUint8 volume: Volume level for the alarm, ranging from 0 to 100.\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:18:17",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

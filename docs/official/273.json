@@ -1,0 +1,15 @@
+{
+  "page_id": "273",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "39",
+  "page_title": "Set scene vol (0xa4)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to set the volume level for the sleep mode listen feature. \n\n| Head  |Len   |Cmd  | Volume |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xa4 |Volume| xx |0x02   |\n\nuint8 volume: Represents the volume level at which the alarm audition will be played, ranging from 0 to 100.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:22:52",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

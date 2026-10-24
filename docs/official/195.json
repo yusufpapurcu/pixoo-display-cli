@@ -1,0 +1,15 @@
+{
+  "page_id": "195",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Set poweron voice vol (0xbb)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to set or get the power-on voice volume\n\n| Head  |Len   | Cmd  | Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0xbb |data[] | xx |0x02   |\n\nAPP sends data to the device as follows:\n\nControl Field data[0]: 1 byte\n- 1: Set the power-on voice volume\n- 0: Get the current power-on voice volume\n\nVolume Size data[1]: 1 byte\n- Represents the volume level ranging from 0 to 100.\n\n\n\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0xbb |0x55 | data | xx |0x02   |\n\nThe device sends data to the APP as follows:\n\nVolume Size: 1 byte\n- Represents the current power-on voice volume ranging from 0 to 100.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:12:15",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

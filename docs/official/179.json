@@ -1,0 +1,15 @@
+{
+  "page_id": "179",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Get working mode (0x13)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n-  Get the current system working mode\n\n| Head  |Len   |Cmd   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x13   |xx   |0x02   |\n\nThe speaker returns data of the same type as SPP_CHANGE_MODE.\n\n| Head  |Len   |MainCmd| Cmd   | mode |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   | 0x4 |0x13   |xx   | xx |0x02   |",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:01:09",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

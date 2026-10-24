@@ -1,0 +1,15 @@
+{
+  "page_id": "212",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "34",
+  "page_title": "Set sd music play mode (0xb9)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command for the app to set the current playback mode of SD card music.\n\n| Head  |Len   |Cmd  |Play mode |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xb9|data (1 bytes)   |xx   |0x02   |\nPlay mode: The desired playback mode.\n1: List loop\n2: Single loop\n3: Random play\nNote: The \"Play mode\" field is 1 byte in size.",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:17:15",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

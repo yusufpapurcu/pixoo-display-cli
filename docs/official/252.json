@@ -1,0 +1,15 @@
+{
+  "page_id": "252",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "36",
+  "page_title": "Set alarm listen (0xa5)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Alarm audition command\n\nThis command is used to enable or disable the alarm audition feature, where the alarm sound can be played briefly to give the user an idea of what it will sound like. The packet format is as follows:\n\n| Head  |Len   |Cmd  | data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xa5 |data[]| xx |0x02   |\n\nData Format:\nuint8 on_off: Represents the on/off status of the alarm audition feature. 1 means it is enabled, and 0 means it is disabled.\nuint8 mode: Represents the mode of the alarm sound.\nuint8 volume: Represents the volume level at which the audition will be played, ranging from 0 to 100.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:20:23",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

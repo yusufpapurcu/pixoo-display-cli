@@ -1,0 +1,15 @@
+{
+  "page_id": "304",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Drawing pad exit (0x5a)",
+  "page_content": "Welcome to the Divoom API\n\n##### command description\n\n- This command is used for exiting the drawing pad and is sent from the mobile app to the device. It is primarily used to handle the scenario where the app exits the drawing pad, especially when the device is in a black screen state.\n\n| Head  |Len   |Cmd  |Checksum |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x5a |xx|0x02   |\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:31:21",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

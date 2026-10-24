@@ -1,0 +1,15 @@
+{
+  "page_id": "296",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "App new user define (0x8c)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is for new user-defined image frame transmission. The data structure for this command varies based on the control word (Control_Word).\n\n| Head  |Len   |Cmd  |Control word|Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x8c |Control_Word |data[]   |xx   |0x02   |\n\n-  Control_Word = 0 (Start Sending): Wait for the device to respond before sending data.\n\ndata[] format:\n- File Size (4 bytes): Total size of the file in little-endian format\n- index (1 bytes ):Indicates the index of the image frame, starting from 0.\n\nThe APP should wait for the device's response before starting to send data. The device's response is done using the \"Set user gif\" command.\n\n-  Control_Word = 1 (Sending Data):\n\tdata[] format:\n\t   - File Total Length (4 bytes): Total length of the file in bytes\n\t   - File Offset ID (2 bytes): Little-endian value starting from 0\n\t   - File Data (256 bytes): Actual data to be sent (up to 256 bytes)\n\nIf the device requests retransmission of a data packet, the data structure will be:\n\n| Head  |Len   |MainCmd| Cmd |AckCode  |Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x8c|0x55 | data[] | xx |0x02   |\n\n\tdata[] format:\n\t - data[0]: Control_Word (1 byte): set to 1\n\t - data[1~2] Control Data (2 bytes): Offset value requesting a resend of data\n\n\n- Control_Word = 2 (Terminate Sending):\n   -no data to be sent\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-09 10:38:18",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

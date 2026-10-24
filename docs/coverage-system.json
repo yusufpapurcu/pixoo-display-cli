@@ -1,0 +1,578 @@
+[
+  {
+    "page": 147,
+    "api": "commands::system::SystemCommand::Brightness",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 178,
+    "api": "commands::system::SystemCommand::WorkMode",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 179,
+    "api": "commands::system::SystemCommand::GetWorkMode; commands::system::SystemReply::WorkMode",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Reply table omits AckCode. decode_event handles its body without requiring a synthetic acknowledgement.",
+    "workflow_api": "session::Session::execute_command",
+    "workflow_tests": "tests/session.rs::documented_statusless_work_mode_and_game_progress_keep_the_first_data_byte"
+  },
+  {
+    "page": 180,
+    "api": "commands::system::SystemCommand::GetSdStatus; commands::system::SystemReply::SdInserted",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Request table uses MainCmd04 plus Cmd15, unlike conventional bare requests; builder follows that literal table. Same opcode/schema repeated on page214.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 181,
+    "api": "commands::system::boot_animation_packets",
+    "tests": "tests/system.rs::page181_boot_animation_200_byte_chunks_and_sequence_bounds",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 182,
+    "api": "commands::system::SystemCommand::GetDeviceTemperature; commands::system::SystemReply::DeviceTemperature",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 183,
+    "api": "commands::system::SystemCommand::NetworkWeather",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Weather kind enumeration is absent; kind retains its documented one-byte representation.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 184,
+    "api": "commands::system::SystemCommand::WeatherDisplay",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Five mode positions are unnamed. Source requires time enabled but does not identify its mode bit, so the API cannot enforce that requirement.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 185,
+    "api": "commands::system::SystemCommand::CurrentWeather",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 186,
+    "api": "commands::system::SystemCommand::GetWeatherDisplay; commands::system::SystemReply::WeatherDisplay",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Five mode positions are unnamed. Source requires time enabled without identifying its mode bit.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 187,
+    "api": "commands::system::SystemCommand::DeviceName",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Character limit is 16 Unicode scalars; length prefix counts encoded UTF-8 bytes.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 188,
+    "api": "commands::system::SystemCommand::GetDeviceName; commands::system::SystemReply::DeviceName",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 189,
+    "api": "commands::system::SystemCommand::LowPower",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 190,
+    "api": "commands::system::SystemCommand::GetLowPower; commands::system::SystemReply::LowPower",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 191,
+    "api": "commands::system::SystemCommand::TemperatureUnit; commands::system::SystemReply::TemperatureUnit",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 192,
+    "api": "commands::system::SystemCommand::HourFormat; commands::system::SystemReply::HourFormat",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 193,
+    "api": "commands::system::SystemCommand::SongNameDisplay; commands::system::SystemReply::SongNameDisplay",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 194,
+    "api": "commands::system::SystemCommand::Password; commands::system::SystemReply::Password",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Source does not say whether four password digits are numeric bytes or ASCII. PasswordEncoding requires explicit choice; reply preserves four password bytes without guessing. Clear/Get omit password bytes because source says they are valid only for Set.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 195,
+    "api": "commands::system::SystemCommand::PowerOnVolume; commands::system::SystemReply::PowerOnVolume",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Query still carries the documented volume byte, set to zero because it has no query meaning.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 196,
+    "api": "commands::system::SystemCommand::PowerOnChannel; commands::system::SystemReply::PowerOnChannel",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Query still carries the documented channel byte, set to zero because it has no query meaning.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 197,
+    "api": "commands::system::SystemCommand::AutoPowerOff",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 198,
+    "api": "commands::system::SystemCommand::GetAutoPowerOff; commands::system::SystemReply::AutoPowerOff",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 199,
+    "api": "commands::system::SystemCommand::GetSdTrackName; commands::system::SystemReply::SdName",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Unicode encoding and byte order are not identified. Name bytes are preserved. Integer length follows global page146 little endian.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 200,
+    "api": "commands::system::SystemCommand::SdMusicList; commands::system::SystemReply::SdName",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Unicode example shows 679c but does not define a complete encoding. Name bytes are preserved instead of decoding guessed UTF-16.",
+    "workflow_api": "session::Session::sd_music_list",
+    "workflow_tests": "tests/session.rs::sd_playlist_collects_all_records_and_accepts_an_empty_completion"
+  },
+  {
+    "page": 201,
+    "api": "commands::system::SystemCommand::Volume",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 202,
+    "api": "commands::system::SystemCommand::GetVolume; commands::system::SystemReply::Volume",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 203,
+    "api": "commands::system::SystemCommand::Playing",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 204,
+    "api": "commands::system::SystemCommand::GetPlaying; commands::system::SystemReply::Playing",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 205,
+    "api": "commands::system::SystemCommand::SdTrack; commands::system::SystemReply::Acknowledged",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 206,
+    "api": "commands::system::SystemCommand::NextTrack",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 207,
+    "api": "commands::system::SystemReply::decode_event; commands::system::SystemReply::SdListComplete",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Device notification only. Table omits AckCode; decode_event accepts the payload without inventing one.",
+    "workflow_api": "session::Session::sd_music_list",
+    "workflow_tests": "tests/session.rs::sd_playlist_collects_all_records_and_accepts_an_empty_completion"
+  },
+  {
+    "page": 208,
+    "api": "commands::system::SystemCommand::GetSdTrackCount; commands::system::SystemReply::SdTrackCount",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 209,
+    "api": "commands::system::SystemCommand::GetSdPlayback; commands::system::SystemReply::SdPlayback",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 210,
+    "api": "commands::system::SystemCommand::SdPlayback",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 211,
+    "api": "commands::system::SystemCommand::SdPosition",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 212,
+    "api": "commands::system::SystemCommand::SdPlayMode",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 213,
+    "api": "commands::system::SystemCommand::RequestMusicList; commands::system::SystemReply::MusicListReady",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 214,
+    "api": "commands::system::SystemCommand::GetSdStatus; commands::system::SystemReply::SdInserted",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Request table uses MainCmd04 plus Cmd15, unlike conventional bare requests; builder follows that literal table. Same opcode/schema repeated on page180.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 246,
+    "api": "commands::schedule::ScheduleCommand::GetAlarms; commands::schedule::decode_alarms",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Source refers to SPP_SET_ALARM_TIME_EXT2 without defining that symbol. Caller explicitly selects AlarmReplyLayout::Page247; tests verify that ten-byte layout, not undocumented alternatives.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 247,
+    "api": "commands::schedule::ScheduleCommand::Alarm",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Modes 1..4 are unnamed, represented by distinct enum variants. Alarm count inferred from getter ten-record response.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 248,
+    "api": "commands::schedule::alarm_animation_packets",
+    "tests": "tests/schedule.rs::pages248_251_animation_transfers_have_fixed_chunks_and_last_actual_size",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 249,
+    "api": "commands::schedule::ScheduleCommand::Memorial",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Setter explicitly limits index to 0..2 while getter documents 0..9. Setter follows its narrower range. Title encoding is unspecified and retained as exactly 32 bytes.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 250,
+    "api": "commands::schedule::ScheduleCommand::GetMemorials; commands::schedule::ScheduleReply::Memorials",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Getter documents ten records, with indexes 0..9, unlike setter 0..2. Title encoding is unspecified and retained as exactly 32 bytes. Disabled records preserve otherwise unused month/day values.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 251,
+    "api": "commands::schedule::memorial_animation_packets",
+    "tests": "tests/schedule.rs::pages248_251_animation_transfers_have_fixed_chunks_and_last_actual_size",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Index range follows page249 setter 0..2; source has no separate range for animation indexes.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 252,
+    "api": "commands::schedule::ScheduleCommand::AlarmListen",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Alarm listen mode meanings are unspecified; mode retains its one-byte value.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 253,
+    "api": "commands::schedule::ScheduleCommand::AlarmVolume",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 254,
+    "api": "commands::schedule::ScheduleCommand::VoiceAlarm; commands::schedule::ScheduleReply::VoiceAlarmAcknowledged",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 256,
+    "api": "commands::schedule::ScheduleCommand::TimeManagement",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Display/cycle mode meanings and sports-mode selector are absent; one-byte values and sports_minutes are explicit. Builder cannot infer which display_mode requires zero sports_minutes. Source says one record per request despite final note mentioning total-record-dependent size.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 259,
+    "api": "commands::schedule::ScheduleCommand::TimeManagementControl; commands::schedule::ScheduleReply::TimeManagementConfigured",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "session::Session::execute_command",
+    "workflow_tests": "tests/session.rs::documented_statusless_work_mode_and_game_progress_keep_the_first_data_byte"
+  },
+  {
+    "page": 264,
+    "api": "commands::tools::ToolCommand::Get; commands::tools::ToolReply::decode",
+    "tests": "tests/tools.rs::pages264_265_tool_controls; page264_replies_are_decoded_using_requested_tool_kind; pages278_281_game_controls_and_progress_notification",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Source omits location of any game_type discriminator, so decoder requires requested ToolKind. Countdown=3 is described in reply schema but omitted from request enumeration; exposed with that documented value. None preserves all unknown bytes.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 265,
+    "api": "commands::tools::ToolCommand::Stopwatch/Score/Noise/Countdown",
+    "tests": "tests/tools.rs::pages264_265_tool_controls; page264_replies_are_decoded_using_requested_tool_kind; pages278_281_game_controls_and_progress_notification",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 266,
+    "api": "commands::schedule::ScheduleCommand::GetSleepScene; commands::schedule::ScheduleReply::SleepScene",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Scene mode names and volume range are unspecified. FM bytes retained in wire order.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 272,
+    "api": "commands::schedule::ScheduleCommand::SleepListen",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Sleep listen mode meanings and volume range are unspecified; both retain one-byte values.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 273,
+    "api": "commands::schedule::ScheduleCommand::SceneVolume",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 274,
+    "api": "commands::schedule::ScheduleCommand::SleepColor",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 275,
+    "api": "commands::schedule::ScheduleCommand::SleepLight",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 276,
+    "api": "commands::schedule::ScheduleCommand::SleepAutoOff",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Scene mode meanings and volume range are unspecified. FM bytes retained in wire order.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 277,
+    "api": "commands::schedule::ScheduleCommand::SleepScene",
+    "tests": "tests/schedule.rs::official_schedule_requests_246_259_266_272_277; pages246_250_259_266_schedule_replies_decode_all_fields; schedule_bounds_and_invalid_replies",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Time byte remains explicit although source says it has no effect. Scene mode meanings and volume range are unspecified.",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 278,
+    "api": "commands::tools::ToolCommand::GameShake",
+    "tests": "tests/tools.rs::pages264_265_tool_controls; page264_replies_are_decoded_using_requested_tool_kind; pages278_281_game_controls_and_progress_notification",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 279,
+    "api": "commands::tools::ToolCommand::GameEnabled",
+    "tests": "tests/tools.rs::pages264_265_tool_controls; page264_replies_are_decoded_using_requested_tool_kind; pages278_281_game_controls_and_progress_notification",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 280,
+    "api": "commands::tools::ToolCommand::KeyDown; commands::tools::GameProgress::decode_event",
+    "tests": "tests/tools.rs::pages264_265_tool_controls; page264_replies_are_decoded_using_requested_tool_kind; pages278_281_game_controls_and_progress_notification",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "Game type enumeration is referenced but page279 defines only on/off. Game type is retained as u8. Device notification table omits AckCode; decode_event parses its five-byte body directly.",
+    "workflow_api": "session::Session::execute_command",
+    "workflow_tests": "tests/session.rs::documented_statusless_work_mode_and_game_progress_keep_the_first_data_byte"
+  },
+  {
+    "page": 281,
+    "api": "commands::tools::ToolCommand::KeyUp",
+    "tests": "tests/tools.rs::pages264_265_tool_controls; page264_replies_are_decoded_using_requested_tool_kind; pages278_281_game_controls_and_progress_notification",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 314,
+    "api": "commands::system::SystemCommand::SoundControl",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  },
+  {
+    "page": 315,
+    "api": "commands::system::SystemCommand::GetSoundControl; commands::system::SystemReply::SoundControl",
+    "tests": "tests/system.rs::official_system_requests_147_178_214_314_315; official_system_replies_preserve_all_fields_and_extensions; system_validation_and_reply_errors",
+    "evidence": "documented; literal payload fixtures; no hardware test",
+    "gaps": "",
+    "workflow_api": "",
+    "workflow_tests": ""
+  }
+]

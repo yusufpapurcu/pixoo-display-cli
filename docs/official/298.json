@@ -1,0 +1,15 @@
+{
+  "page_id": "298",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "App get user define info (0x8e)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used for the 64 custom image frame ID upload function. When the APP connects to the device, it sends a request to the device, or when the device deletes some files, it proactively updates once.\n\n| Head  |Len   |Cmd  |UserIndex |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x8e |user_index|xx   |0x02   |\n\nuser_index(1 bytes): Indicates the index of the image frame, starting from 0.\n\nDevice Response:\n\n| Head  |Len   |MainCmd| Cmd | Ackcode|ControlWord |Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x8e |0x55|control_word | data[] | xx |0x02   |\n\n-  Control_Word = 1:\n\tdata[] format:\n\t\t- User_index (1 byte): Indicates the index of the image frame, starting from 0.\n\t\t- Total (2 bytes): Total number of files in little-endian format.\n\t\t- Offset (2 bytes): Current offset in little-endian format.\n\t\t- Num (2 bytes): Number of files sent in the current response in little-endian format.\n\t\t- File id (4 bytes each * Num): Data containing the IDs of the files.\n\n- Control_Word = 2:\n\t\tUser_index (1 byte): Indicates the index of the image frame, starting from 0.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:29:35",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

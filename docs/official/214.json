@@ -1,0 +1,15 @@
+{
+  "page_id": "214",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "34",
+  "page_title": "Send sd card status (0x15)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- device Notify the TF (microSD) card insertion or removal to app.\n\n| Head  |Len   |Maincmd | Cmd    |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)  |0x4 | 0x15 | xx |0x02   |\n\nUse this command to notify the device about the insertion or removal of the TF (microSD) card. When the app sends this command, the device will also actively send the TF card status.\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Status  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x15 |0x55 |status (1 bytes) | xx |0x02   |\n\nStatus: 1 indicates TF card insertion, 0 indicates TF card removal.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:17:45",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

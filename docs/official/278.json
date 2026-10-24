@@ -1,0 +1,15 @@
+{
+  "page_id": "278",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "40",
+  "page_title": "Send game shark (0x88)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to get the current scene mode settings from the device.\n\n| Head  |Len   |Cmd   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x88   |xx   |0x02   |\n\nThis command is used to send a game \"Shake\" action to the device. When the device receives this command, it will trigger the game's \"Shake\" action, simulating a shaking motion in the game.\n\nThe command does not require any additional data fields. It is simply used as a trigger to perform the game action.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:24:08",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

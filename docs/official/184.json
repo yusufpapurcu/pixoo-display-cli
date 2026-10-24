@@ -1,0 +1,15 @@
+{
+  "page_id": "184",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Send net temp disp (0x5e)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to send network temperature display\n\n\n| Head  |Len   | Cmd   |Data|Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes) |0x5E |data[]| xx |0x02   |\n\nData: The format of the data is as follows:\n\ndata[0~4]: Display modes. If selected, it is set to 1; otherwise, it is set to 0. Time must also be included.\n\nData[5] = time_min & 0xFF; time_second is the number of minutes since 00:00 of the current day.\n\nData[6] = time_min >> 8\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:03:26",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

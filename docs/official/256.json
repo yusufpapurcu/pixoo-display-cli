@@ -1,0 +1,15 @@
+{
+  "page_id": "256",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "37",
+  "page_title": "Set time manage info (0x56)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to set time management information. Each time, only one record can be set.\n\n| Head  |Len   |Cmd  |data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x56 |data[]   |xx   |0x02   |\n\nData[] Format:\n- Uint8 tol: Total number of records to be set.\n- Uint8 ID: Record identifier, corresponding to the index 0, 1, 2, ..., 9 for each record.\n- Uint8 start_hour: Starting hour (0-23).\n- Uint8 start_min: Starting minute (0-59).\n- Uint8 end_hour: Ending hour (0-23).\n- Uint8 end_min: Ending minute (0-59).\n- Uint8 tol_time: Total time in minutes. This field only has a value in the sports mode; for other modes, it will be set to 0.\n- Uint8 voice_on_off: Voice alarm switch; 1 for ON, 0 for OFF.\n- Uint8 disp_mode: Display mode.\n- Uint8 cyc_mode: Cycle mode.\n- Uint16 pic_len: Size of the picture data.\n- Uint8 pic_data[]: Picture data.\n\nNote: The actual data length of the packet will depend on the total number of records (tol) and the size of the picture data (pic_len). The data should be filled accordingly.\n\nPlease note that the actual structure of the data may vary depending on the device's specific implementation, and additional information may be required to understand the exact meaning of some fields (such as disp_mode and cyc_mode).\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:21:10",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

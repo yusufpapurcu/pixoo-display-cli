@@ -1,0 +1,15 @@
+{
+  "page_id": "300",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "App send eq gif (0x1b)",
+  "page_content": "Welcome to the Divoom API\n\n##### command description\n\n- This command is used for the app to send EQ rhythm animation to the device. The command packet format is the same as \"Set rhythm gif\".\n\n| Head  |Len   |Cmd  |Pos |Tol |Id |Data |Checksum |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x1b |pos |tol |id |data[] |xx|0x02   |\n\ndata format:\n- pos (1 byte): Custom position of the animation, counting from left to right and top to bottom, starting from 1.\n- Tol_len (2 bytes): Total length of the data packet in little-endian format.\n- id (1 byte): Sequence number of the data packet being sent.\n- data[]: Data structure similar to divoom_image_encode_encode_pic, encoding the animation data. The data is fixed at 200 bytes, and the last packet contains the actual data size.\n\nThis command is used to send EQ rhythm animations to the device for display. The device will use the provided animation data to show the EQ rhythm effect.",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:30:08",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

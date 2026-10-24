@@ -1,0 +1,15 @@
+{
+  "page_id": "178",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "30",
+  "page_title": "Set work mode (0x5)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Switch system working mode \n\n| Head  |Len   |Cmd   |Mode   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x5   |mode   |xx   |0x02   |\n\nmode:\n\tSPP_DEFINE_MODE_BT = 0,             //Blue\n\tSPP_DEFINE_MODE_FM = 1,             //FM\n\tSPP_DEFINE_MODE_LINEIN = 2,         //LineIn\n\tSPP_DEFINE_MODE_SD = 3,             //SD Card play\n\tSPP_DEFINE_MODE_USBHOST = 4,        //USB HOST\n\tSPP_DEFINE_MODE_RECORD = 5,         //Record\n\tSPP_DEFINE_MODE_RECORDPLAY = 6,     //RecordPlay\n\tSPP_DEFINE_MODE_UAC = 7,            //uac\n\tSPP_DEFINE_MODE_PHONE = 8,          //phone\n\tSPP_DEFINE_MODE_DIVOOM_SHOW = 9,    //DIVOOM_SHOW\n\tSPP_DEFINE_MODE_ALARM_SET = 10,      //Alarm set\n\tSPP_DEFINE_MODE_GAME = 11,           //Game\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:00:46",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

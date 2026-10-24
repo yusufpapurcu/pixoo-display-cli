@@ -1,0 +1,15 @@
+{
+  "page_id": "293",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "App new send gif cmd (0x8b)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used for the upgrade process to transfer animated data. The data structure for this command varies based on the control word (Control_Word).\n\n| Head  |Len   |Cmd  |Control word|Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x8b |Control_Word |data[]   |xx   |0x02   |\n\n-  Control_Word = 0 (Start Sending):\n\n\tdata[] format:\n\t   - File Size (4 bytes): Total size of the file in little-endian format\n\n\t   After sending this command, the APP should wait for the device response before starting to send data.\n\nDevice response:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x8b |0x55 | data[] | xx |0x02   |\n\n\tdata[] format:\n\t   - data[0]: Control_Word (1 byte): 0\n\t   - data[1]: Control Data (1 byte):\n\t\t - 0: Cannot start, cancel sending\n\t\t - 1: Start sending data\n\n-  Control_Word = 1 (Sending Data):\n\tdata[] format:\n\t   - File Total Length (4 bytes): Total length of the file in bytes\n\t   - File Offset ID (2 bytes): Little-endian value starting from 0\n\t   - File Data (256 bytes): Actual data to be sent (up to 256 bytes)\n\n- Control_Word = 2 (Terminate Sending):\n   -no data\n\n- Device Requests Resend (Control_Word = 1):\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data  |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0x8b |0x55 | data[] | xx |0x02   |\n\ndata[] format:\n - data[0]: Control_Word (1 byte): 1\n - data[1~2] Control Data (2 bytes): Offset value requesting a resend of data\n\n\nThe command is used for transferring animated data from the APP to the device using a control word to manage the process. The data to be sent includes the file size, offset IDs, and actual file data. The device may request a resend of specific data if necessary.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:27:25",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

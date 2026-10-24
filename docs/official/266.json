@@ -1,0 +1,15 @@
+{
+  "page_id": "266",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "39",
+  "page_title": "Get sleep scene (0xa2)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- This command is used to get the current scene mode settings from the device.\n\n| Head  |Len   |Cmd   |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0xa2   |xx   |0x02   |\n\nDevice response command:\n\n| Head  |Len   |MainCmd| Cmd |AckCode|Data |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)|0x4   | 0xa2 |0x55 | data[] | xx |0x02   |\n\ndata[]:\n\n- uint8 time: The time of the scene mode.\n- uint8 mode: The scene mode type.\n- uint8 on: The on/off status of the scene mode.\n- uint8 fm_freq[2]: The FM frequency settings for the scene mode (2 bytes).\n- uint8 volume: The volume level for the scene mode.\n- uint8 color_r: The red color component value for the scene mode.\n- uint8 color_g: The green color component value for the scene mode.\n- uint8 color_b: The blue color component value for the scene mode.\n- uint8 light: The light settings for the scene mode.\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:22:24",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

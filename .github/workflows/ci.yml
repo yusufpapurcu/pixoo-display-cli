@@ -1,0 +1,21 @@
+name: Rust library
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libdbus-1-dev pkg-config
+      - run: cargo fmt --check
+      - run: cargo test --all-features
+      - run: cargo test --no-default-features --all-targets
+      - run: cargo clippy --all-features --all-targets -- -D warnings
+      - run: cargo doc --all-features --no-deps
+      - run: pwsh -File tools/update-coverage.ps1 -Check

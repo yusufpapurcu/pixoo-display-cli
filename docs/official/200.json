@@ -1,0 +1,15 @@
+{
+  "page_id": "200",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "34",
+  "page_title": "Get sd music list (0x7)",
+  "page_content": "Welcome to the Divoom API\n\n    \n##### command description\n\n- Command to get the playlist \n\n| Head  |Len   |Cmd  |Start id | End id |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x7  |xx (2 bytes) |xx (2 bytes) |xx |0x02   |\n\n- When requesting the playlist, send the start music ID and end music ID, each represented by two bytes (little-endian format, lower byte first, higher byte later). If needed, first send the command to get the total length: SPP_GET_SD_MUSIC_LIST_TOTAL_NUM = 0x7D.\n\nDevice respond:\n\n| Head  |Len   |Response Cmd|Cmd  |AckCode |Music id | Name len | Name |Checksum   |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x4 |0x7 |0x55  |xx (2 bytes) |xx (2 bytes) |xx  | xx |0x02   |\n\n- Music ID: 2 bytes, represents the song ID, starting from 0 (little-endian format, lower byte first, higher byte later).\n- Name Length: 2 bytes (normal length, not Unicode length, little-endian format, lower byte first, higher byte later).\n- Name: Encoded in Unicode. For example, \"果\" -> \"\\u679c\" (Unicode), data sending format: 679c.\n\nAfter the list is returned, the device returns a SPP_SEND_SD_LIST_OVER = 0x14 command.",
+  "s_number": "99",
+  "addtime": "2023-08-09 10:34:36",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}

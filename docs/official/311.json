@@ -1,0 +1,15 @@
+{
+  "page_id": "311",
+  "author_uid": "1",
+  "author_username": "showdoc",
+  "item_id": "5",
+  "cat_id": "42",
+  "page_title": "Drawing mul pad enter (0x6f)",
+  "page_content": "Welcome to the Divoom API\n\n##### command description\n\n-This command is used to enter the multiple screen mode drawing pad or perform a clear screen operation.It is sent from the mobile app to the device.\n\n| Head  |Len   |Cmd |Data|Checksum |Tail   |\n| :------------: | :------------: | :------------: | :------------: | :------------: | :------------: |\n|0x01   |xx (2 bytes)   |0x6f|data[]|xx|0x02   |\n\n- Data: The data field contains RGB color information for the drawing pad.\n  - data[0] (Byte 1): R - Red color component.\n  - data[1] (Byte 2): G - Green color component.\n  - data[2] (Byte 3): B - Blue color component.\n\n",
+  "s_number": "99",
+  "addtime": "2023-08-08 17:34:16",
+  "page_comments": "",
+  "is_del": "0",
+  "attachment_count": "0",
+  "unique_key": ""
+}
