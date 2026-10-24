@@ -5,6 +5,12 @@ The allowed dimensions are 16, 32, and 64 pixels. `Frame::from_image` and
 `Frame::from_bytes` resize with nearest-neighbor sampling. Non-square sources
 stretch to the selected square resolution.
 
+`Frame::from_image_fitted` and `Animation::from_gif_fitted` accept `FitMode`.
+`Contain` preserves aspect ratio with opaque black padding. `Cover` samples a
+centered source square directly into the output, avoiding an enlarged intermediate
+image for narrow sources. `Stretch` retains the original loader behavior. All
+three use nearest-neighbor sampling. GIF disposal is composited before fitting.
+
 The native Bluetooth encoder supports 16 and 32 pixels. It rejects 64 pixel
 native encoding because the available protocol evidence does not specify its
 frame flag, palette fields, or model behavior. Loading, resizing, and rasterizing

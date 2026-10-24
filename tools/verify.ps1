@@ -13,11 +13,11 @@ try {
     & (Join-Path $PSScriptRoot 'update-coverage.ps1') -Check
     & (Join-Path $PSScriptRoot 'check-doc-links.ps1')
     $commands = @(
-        @('fmt','--check'),
-        @('test','--all-features'),
-        @('test','--no-default-features','--all-targets'),
-        @('clippy','--all-features','--all-targets'),
-        @('doc','--all-features','--no-deps'),
+        @('fmt','--all','--check'),
+        @('test','--workspace','--all-features'),
+        @('test','-p','divoom-bluetooth','--no-default-features','--all-targets'),
+        @('clippy','--workspace','--all-features','--all-targets'),
+        @('doc','--workspace','--all-features','--no-deps'),
         @('run','--example','media_native')
     )
     foreach ($cargoArgs in $commands) {

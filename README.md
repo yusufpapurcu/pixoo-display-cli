@@ -1,6 +1,8 @@
 # divoom-bluetooth
 
-A Rust library for the [official Divoom Bluetooth protocol](https://docin.divoom-gz.com/web/#/5/146). It implements checked payload APIs for all 91 command pages, incremental Classic framing, the BLE envelope, reply decoding, native 16/32 pixel media, and exclusive transfer sessions. There is no CLI.
+A Rust library for the [official Divoom Bluetooth protocol](https://docin.divoom-gz.com/web/#/5/146), with the separate `pixo` CLI for Pixoo-Max daily workflows. The library implements checked payload APIs for all 91 command pages, incremental Classic framing, the BLE envelope, reply decoding, native 16/32 pixel media, and exclusive transfer sessions.
+
+Build the CLI with `cargo build -p pixo-cli --release`, or install it with `cargo install --path crates/pixo-cli --locked`. Run `pixo --help` for commands. The [CLI guide](docs/cli.md) covers named scenes, text and image previews, direct device uploads, configuration import, JSON results, and completion limits. CLI dependencies remain in their own workspace member. Existing library consumers do not depend on argument parsing, fonts, configuration, or process locking.
 
 Command coverage and device compatibility are separate. The [coverage matrix](docs/coverage.md) links every command page to its API, fixtures, device assumptions, and unresolved fields. Native 64 pixel encoding and native text-content serialization require encoder bytes from another source. Their proprietary encoder functions are not defined in the available documentation. [Protocol gaps](docs/protocol-gaps.md) records these limits.
 
@@ -13,7 +15,7 @@ assert_eq!(bytes, [1, 4, 0, 0x74, 50, 0xaa, 0, 2]);
 # Ok::<(), divoom_bluetooth::Error>(())
 ```
 
-Use a local path dependency while the repository remains private.
+Use a local path dependency when consuming a checkout.
 
 ```toml
 [dependencies]
