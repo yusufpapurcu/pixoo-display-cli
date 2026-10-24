@@ -83,7 +83,7 @@ The command module accepts an externally encoded word block for that operation.
 - [The GIF89a specification](https://giflib.sourceforge.net/gifstandard/GIF89a.html)
   defines the logical-screen background and frame disposal methods.
 
-The Rust reference under `.audit/rust-reference` was inspected for behavior.
+The Rust reference listed in `NOTICE.md` was inspected for behavior.
 It has no discoverable license, so its source was not copied. Its treatment of
 truncated native input and zero-bit one-color palettes was not adopted.
 

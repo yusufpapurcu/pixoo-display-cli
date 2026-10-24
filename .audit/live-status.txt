@@ -1,6 +1,0 @@
-Observed on 2026-10-24 through the native Windows Rust example.
-Command: cargo run --manifest-path rust/Cargo.toml --offline --example read_status -- .config/go-divoom/config.json
-Exit code: 0
-LightSettings { mode: Lyric, temperature_mode: 0, vj_selection: 1, color: Rgb { r: 255, g: 80, b: 0 }, brightness: 100, light_selection: 0, light_switch: 1, music_selection: 3, system_brightness: 100, time_format: 0, time_color: Rgb { r: 255, g: 80, b: 0 }, time_display_mode: 2, time_checkboxes: [1, 0, 0, 0], extensions: [164, 44] }
-Only status queries were sent. No storage write or setter was run. The official
-mode6 label was decoded; its physical meaning on this Max was not established.
